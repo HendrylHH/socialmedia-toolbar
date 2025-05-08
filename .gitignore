@@ -1,0 +1,49 @@
+# Dependencies
+[Bb]in/
+[Oo]bj/
+
+# User-specific files
+user_settings.json
+user_settings.txt
+
+# VS Code files
+.vscode/
+
+# Rider files
+.idea/
+
+# Visual Studio files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+[Dd]ebugPublic/
+[Rr]eleasePublic/
+[Xx]64/
+[Xx]86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+[Ll]ogs/
+
+# NuGet Packages
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/packages/*
+# except build/, which is used as an MSBuild target.
+!**/packages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/packages/repositories.config
+
+# Windows files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Optional files
+*.[Cc]ache
+*.[Ll]og
+*.[Tt]mp
