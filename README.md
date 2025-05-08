@@ -6,6 +6,8 @@ Uma barra lateral para Windows que fornece acesso rápido às suas redes sociais
 
 ## Recursos
 
+![Usage](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXptdThtYXl3ZTI5dGR1aTVwcXQzM2s4MHNraTdtMHVzbzRsc3FzYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/o8Fdf1OoxsTusEZlgr/giphy.gif)
+
 - Barra lateral inspirada no design do Opera GX
 - Acesso rápido às plataformas de mídia social
 - Permanece discretamente na lateral da tela
@@ -22,6 +24,8 @@ Uma barra lateral para Windows que fornece acesso rápido às suas redes sociais
 
 ## Personalização
 
+![Custom](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWx4djBhZnRzOGIxOXR5YWlib2JoZjM2ZjV1dXZjNjgxcXBrdDhydSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mysWRzCvbSnPbyVU3t/giphy.gif)
+
 O aplicativo permite personalizar a lista de sites:
 
 - **Adicionar Site**: Adicione qualquer site com nome e URL personalizados
@@ -36,6 +40,8 @@ O aplicativo permite personalizar a lista de sites:
 - WebView2 Runtime
 
 ## Instalação
+
+![Install](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2g3M3M5MTFsbXdmbWt0ZXdicTJsdmQ3cHRzMTRmcGNpNGFpbHNseSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/syIVwLm03c6BoNtOQq/giphy.gif)
 
 1. Baixe a versão mais recente da página de releases
 2. Extraia os arquivos para qualquer pasta
