@@ -1,7 +1,5 @@
 # Social Media Toolbar
 
-![Logo do Social Media Toolbar](icons/logo.png)
-
 A sidebar for Windows that provides quick access to your social media platforms of choice.
 
 ![Social Media Toolbar Logo](icons/logo.png)
