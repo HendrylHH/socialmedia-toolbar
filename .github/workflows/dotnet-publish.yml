@@ -26,7 +26,8 @@ jobs:
       run: dotnet build ToolbarApp.csproj --configuration Release --no-restore
 
     - name: Publish application
-      run: dotnet publish ToolbarApp.csproj --configuration Release --runtime win-x64 --self-contained true --output ./app-publish --no-build
+      run: dotnet publish ToolbarApp.csproj --configuration Release --runtime win-x64 --self-contained true --output ./app-publish
+
 
     - name: Zip Release Artifact
       run: Compress-Archive -Path ./release_output/* -DestinationPath ToolbarApp-${{ github.ref_name }}.zip
