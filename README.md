@@ -49,7 +49,7 @@ The app allows you to customize the website list:
   <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2g3M3M5MTFsbXdmbWt0ZXdicTJsdmQ3cHRzMTRmcGNpNGFpbHNseSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/syIVwLm03c6BoNtOQq/giphy.gif" alt="Install Demo">
 </p>
 
-1. Download the latest release from the Releases page
+1. Download the latest release from the Releases page (IT'S DONE!)
 2. Extract the files to any folder
 3. Run the `ToolbarApp.exe` file
 
