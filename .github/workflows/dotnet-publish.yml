@@ -1,0 +1,57 @@
+name: .NET Social ToolbarApp
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build-and-release:
+    name: Social ToolbarApp
+    runs-on: windows-latest 
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore ToolbarApp.csproj
+
+    - name: Build application
+      run: dotnet build ToolbarApp.csproj --configuration Release --no-restore
+
+    - name: Publish application
+      run: dotnet publish ToolbarApp.csproj --configuration Release --runtime win-x64 --self-contained true --output ./release_output --no-build
+
+    - name: Zip Release Artifact
+      run: Compress-Archive -Path ./release_output/* -DestinationPath ToolbarApp-${{ github.ref_name }}.zip
+      shell: pwsh
+
+    - name: Create GitHub Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: ToolbarApp ${{ github.ref_name }}
+        body: |
+          Release Social Media Toolbar.
+          Faça o download do arquivo .zip abaixo.
+        draft: false
+        prerelease: false
+
+    - name: Upload Release Asset (Zip)
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./ToolbarApp-${{ github.ref_name }}.zip
+        asset_name: ToolbarApp-${{ github.ref_name }}.zip
+        asset_content_type: application/zip
