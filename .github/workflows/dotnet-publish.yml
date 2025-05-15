@@ -17,7 +17,7 @@ jobs:
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '9.0.x' # Use 8.0.x se estiver com .NET 8
+        dotnet-version: '9.0.101'
 
     - name: Restore dependencies
       run: dotnet restore ToolbarApp.csproj --runtime win-x64
