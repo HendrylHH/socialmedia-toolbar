@@ -34,7 +34,9 @@ jobs:
       run: choco install innosetup --yes
 
     - name: Compile installer with Inno Setup
-      run: '"C:\Program Files (x86)\Inno Setup 6\ISCC.exe" Installer.iss /dAppVersion=${{ github.ref_name }}'
+      run: |
+        & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "Installer.iss" /dAppVersion=${{ github.ref_name }}
+      shell: pwsh
 
     - name: Create GitHub Release
       id: create_release
