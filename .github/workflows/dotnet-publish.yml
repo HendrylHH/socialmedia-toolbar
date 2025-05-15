@@ -45,7 +45,7 @@ jobs:
         tag_name: ${{ github.ref }}
         release_name: ToolbarApp ${{ github.ref_name }}
         body: |
-          Release Social Media Toolbar
+          Release Social Media Sidebar
         draft: false
         prerelease: false
 
