@@ -20,13 +20,13 @@ jobs:
         dotnet-version: '9.0.x' # Use 8.0.x se estiver com .NET 8
 
     - name: Restore dependencies
-      run: dotnet restore ToolbarApp.csproj
+      run: dotnet restore ToolbarApp.csproj --runtime win-x64
 
     - name: Build application
       run: dotnet build ToolbarApp.csproj --configuration Release --no-restore
 
     - name: Publish application
-      run: dotnet publish ToolbarApp.csproj --configuration Release --runtime win-x64 --self-contained true --output ./release_output --no-build
+      run: dotnet publish ToolbarApp.csproj --configuration Release --runtime win-x64 --self-contained true --output ./app-publish --no-build
 
     - name: Zip Release Artifact
       run: Compress-Archive -Path ./release_output/* -DestinationPath ToolbarApp-${{ github.ref_name }}.zip
