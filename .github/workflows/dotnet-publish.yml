@@ -7,8 +7,8 @@ on:
 
 jobs:
   build-and-release:
-    name: Social ToolbarApp
-    runs-on: windows-latest 
+    name: Build and Release Toolbar
+    runs-on: windows-latest
 
     steps:
     - name: Checkout code
@@ -17,7 +17,7 @@ jobs:
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '9.0.x'
+        dotnet-version: '9.0.x' # Use 8.0.x se estiver com .NET 8
 
     - name: Restore dependencies
       run: dotnet restore ToolbarApp.csproj
@@ -32,21 +32,26 @@ jobs:
       run: Compress-Archive -Path ./release_output/* -DestinationPath ToolbarApp-${{ github.ref_name }}.zip
       shell: pwsh
 
+    - name: Install Inno Setup
+      run: choco install innosetup --yes
+
+    - name: Compile installer with Inno Setup
+      run: '"C:\Program Files (x86)\Inno Setup 6\ISCC.exe" Installer.iss /dAppVersion=${{ github.ref_name }}'
+
     - name: Create GitHub Release
       id: create_release
       uses: actions/create-release@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ github.ref }}
         release_name: ToolbarApp ${{ github.ref_name }}
         body: |
-          Release Social Media Toolbar.
-          Faça o download do arquivo .zip abaixo.
+          Release Social Media Toolbar
         draft: false
         prerelease: false
 
-    - name: Upload Release Asset (Zip)
+    - name: Upload Release Artifact (.zip)
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -55,3 +60,13 @@ jobs:
         asset_path: ./ToolbarApp-${{ github.ref_name }}.zip
         asset_name: ToolbarApp-${{ github.ref_name }}.zip
         asset_content_type: application/zip
+
+    - name: Upload Installer (.exe)
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./ToolbarInstaller.exe
+        asset_name: ToolbarInstaller-${{ github.ref_name }}.exe
+        asset_content_type: application/vnd.microsoft.portable-executable
